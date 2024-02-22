@@ -24,7 +24,7 @@ class Boggle:
             return False
         if x < 0 or x >= rows or y < 0 or y >= cols:
             return False
-        if board[x][y] != word[0]:
+        if self.board[x][y] != word[0]:
             return False
 
         positions.append((x, y))
