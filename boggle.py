@@ -46,7 +46,7 @@ class Boggle:
         for word, positions in result.items():
             print(word+":", positions)
         
-if __name__ == '__main__':    
+if __name__ == '__main__':
     board = [['e', 'a'], ['s', 't']]
     words = [line.strip() for line in open('files/word_list_3000.txt', 'r')]
     boggle = Boggle(board, words)
