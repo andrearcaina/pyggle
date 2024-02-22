@@ -16,7 +16,7 @@ class Boggle:
                     for j in range(cols):
                         if self.board[i][j] == word[0] and word not in result:
                             if self.search(word, i, j, rows, cols, positions):
-                                result[word] = positions[:]
+                                result[word] = positions
         return result
 
     def search(self, word, x, y, rows, cols, positions):
