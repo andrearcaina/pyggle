@@ -48,6 +48,6 @@ class Boggle:
         
 if __name__ == '__main__':
     board = [['e', 'a'], ['s', 't']]
-    words = [line.strip() for line in open('files/word_list_3000.txt', 'r')]
+    words = [line.strip() for line in open('../data/word_list_3000.txt', 'r')]
     boggle = Boggle(board, words)
     boggle.print()
