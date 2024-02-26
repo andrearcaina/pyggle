@@ -1,7 +1,7 @@
 # Pyggle
 
 Find all possible words given a board and words, with a visual representation of the algorithm!
-`backend/api/boggle.py` returns a dictionary of all possible words with coordinates of each character.
+Check `lib` for package details. For an example on how to use pyggle, check `lib/examples/example.py`!
 
 Will modify so:
 
