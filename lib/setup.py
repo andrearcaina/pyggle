@@ -7,7 +7,7 @@ with open(path.join(this_directory, "README.md"), "r", encoding="utf-8") as f:
 
 setup(
     name='pyggle',
-    version='1.0.1',
+    version='1.0.2',
     author='Andre Arcaina',
     author_email='dtandre331@gmail.com',
     description='Python-based package that allows you to solve any N x M Boggle board.',
@@ -18,4 +18,5 @@ setup(
     python_requires='>=3.6',
     license='MIT',
     packages=find_packages(),
+    package_data={'pyggle': ['data/words_alpha.txt']}
 )
