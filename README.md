@@ -19,6 +19,8 @@ pip install pyggle
 ```python
 from pyggle import Boggle
 
+board = [['e', 'a'], ['s', 't']]
+
 # this is only 3000 words, but the web demo will all utilize 380k words
 with open('sample_data.txt', 'r') as file:
   words = [line.strip() for line in file]
