@@ -28,6 +28,8 @@ with open('sample_data.txt', 'r') as file:
 
 boggle = Boggle(board, words)
 
+# if you initialize without an existing words list, it will utilize the 380k words list instead
+
 # print full dictionary
 print(boggle.solver())
 

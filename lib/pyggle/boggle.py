@@ -1,9 +1,13 @@
 class Boggle:
-    def __init__(self, board, words):
+    def __init__(self, board, words=None):
         self.board = board
         self.words = words
 
     def solver(self):
+        if not self.words:
+            with open("data/words_alpha.txt", "r") as f:
+                self.words = [word.strip() for word in f]
+
         result = {}
         rows = len(self.board)
         cols = len(self.board[0])
