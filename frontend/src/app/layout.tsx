@@ -6,7 +6,11 @@ export const metadata = {
   description: 'a web app that solves boggle :)'
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en">
       <body className="font-mono">
