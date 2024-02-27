@@ -1,13 +1,13 @@
 from setuptools import setup, find_packages
 from os import path
 
-this_directory = path.abspath(path.join(path.dirname(__file__), ".."))
+this_directory = path.abspath(path.dirname(__file__))
 with open(path.join(this_directory, "README.md"), "r", encoding="utf-8") as f:
     long_description = f.read()
 
 setup(
     name='pyggle',
-    version='0.0.4.2',
+    version='0.0.4.3',
     author='Andre Arcaina',
     author_email='dtandre331@gmail.com',
     description='Python-based package that allows you to solve any N x M Boggle board.',
