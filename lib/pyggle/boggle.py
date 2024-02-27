@@ -1,3 +1,5 @@
+import os
+
 class Boggle:
     def __init__(self, board, words=None):
         self.board = board
@@ -5,7 +7,10 @@ class Boggle:
 
     def solver(self):
         if not self.words:
-            with open("data/words_alpha.txt", "r") as f:
+            this_directory = os.path.abspath(os.path.dirname(__file__))
+            words_alpha_path = os.path.join(this_directory, "data", "words_alpha.txt")
+            
+            with open(words_alpha_path, "r") as f:
                 self.words = [word.strip() for word in f]
 
         result = {}
