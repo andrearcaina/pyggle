@@ -4,7 +4,7 @@
 
 GitHub: [https://github.com/andrearcaina/pyggle](https://github.com/andrearcaina/pyggle)
 
-PyPi: [https://pypi.org/project/pyggle/0.0.1/](https://pypi.org/project/pyggle/0.0.1/)
+PyPi: [https://pypi.org/project/pyggle/](https://pypi.org/project/pyggle/)
 
 Find all possible words given a board and words, with a visual representation of the algorithm!
 Check `lib/docs` for package details. For an example on how to use pyggle, check `lib/examples/example.py`!
