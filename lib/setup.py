@@ -7,7 +7,7 @@ with open(path.join(this_directory, "README.md"), "r", encoding="utf-8") as f:
 
 setup(
     name='pyggle',
-    version='0.0.4.3',
+    version='0.0.4.4',
     author='Andre Arcaina',
     author_email='dtandre331@gmail.com',
     description='Python-based package that allows you to solve any N x M Boggle board.',
