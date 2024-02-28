@@ -16,10 +16,13 @@ The frontend is developed using `TypeScript` and the Next.js framework, with Tai
 
 [![PYTHON](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](https://www.python.org/)
 [![FLASK](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/en/3.0.x/)
-![OpenCV](https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white) \
+![OpenCV](https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white)
+![EasyOCR](https://img.shields.io/badge/easyocr-008080?style=for-the-badge&logo=python&logoColor=white) \
 The backend framework chosen for this project is Flask, a `Python`-based framework. In Flask, I create API endpoints to communicate with the frontend (the client).
-These endpoints are designed to decipher the given boggle board from the client and return all possible combinations, coordinates, and score. 
-The user can also send an image of a boggle board.
+These endpoints are designed to decipher the given boggle board from the client and return all possible combinations, coordinates, and score using **Pyggle**. 
+The user can also send an image of a boggle board where I use **OpenCV** to preprocess the image and use **EasyOCR** to accurately retrieve the characters from the boggle board.
+
+The words and coordinates are then sent to the client as a JSON payload for the frontend to render.
 
 ## Package
 
