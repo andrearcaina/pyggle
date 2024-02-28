@@ -9,3 +9,6 @@ MarkupSafe==2.1.5
 pyggle==1.0.2
 Werkzeug==3.0.1
 zipp==3.17.0
+opencv-python==4.9.0.80
+easyocr==1.7.1
+numpy==1.26.4
