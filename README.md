@@ -3,10 +3,9 @@
 </h1>
 
 # Pyggle
-Web Demo: [Coming Soon!](url)
+Find all possible words given a boggle board and words (or none!), with a visual representation on how the algorithm works!
 
-Find all possible words given a board and words, with a visual representation of the algorithm!
-Check `lib/docs` for package details. For an example on how to use pyggle, check [`lib/examples/example.py`](https://github.com/andrearcaina/pyggle/blob/main/lib/examples/example.py)!
+Web Demo: [Coming Soon!](https://github.com/andrearcaina/pyggle)
 
 ## Tech Stack
 [![JAVASCRIPT](https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=FFF)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
