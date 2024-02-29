@@ -94,7 +94,7 @@ class Boggle:
     def get_length(self) -> int:
         return len([char for sublist in self.board for char in sublist])
 
-    def get_words(self) -> list:
+    def get_words(self) -> Union[list, None]:
         if not self.solver():
             return None
 
