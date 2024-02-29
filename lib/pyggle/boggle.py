@@ -106,10 +106,13 @@ class Boggle:
 
         return [value for value in self.solver().values()]
 
-    def get_score(self) -> list:
+    def get_score(self) -> Union[int, list]:
         score = []
         words = self.get_words()
         word_scores = {1: 1, 2: 1, 3: 1, 4: 1, 5: 2, 6: 3, 7: 5}
+
+        if not words:
+            return 0
 
         for word in words:
             word_length = len(word)
