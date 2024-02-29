@@ -19,7 +19,7 @@ pip install pyggle
 ```python
 from pyggle import Boggle
 
-board = "ea st"
+board = "ea st" # or [["e", "a"], ["s", "t"]], both work
 
 # if words is not passed as an argument of type list, will utilize 479k words (all in English)
 # if official is not given as a boolean argument, find all words regardless of length
