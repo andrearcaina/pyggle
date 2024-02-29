@@ -1,12 +1,18 @@
 from pyggle import Boggle 
 
 if __name__ == "__main__":
-    board = [['e', 'a'], ['s', 't']]
+    board = "ea st"
+    # board can be [["e", "a"], ["s", "t"]] or "ea st"
     
     # this is only 3000 words, but the web demo will utilize all 479k words
-    with open('sample_data.txt', 'r') as file:
+    with open('data/word_list_3000.txt', 'r') as file:
         words = [line.strip() for line in file]
-    boggle = Boggle(board, words)
+    
+    # the second adn third argument are optional
+    # if words is not given, will default to 479k word list
+    # if official is not given, will default to False (will return all words, regardless of length)
+    # official means "official rules of Boggle game"
+    boggle = Boggle(board, words, True)
 
     # print full dictionary
     print(boggle.solver())
@@ -17,6 +23,8 @@ if __name__ == "__main__":
     # print only coords
     print(boggle.get_coords())
 
+    # print score of each word
+    print(boggle.get_score())
+
     # print word: coord format
     boggle.print_result()
-

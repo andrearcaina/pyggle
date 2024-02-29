@@ -4,12 +4,13 @@
 
 ### Constructor
 
-#### `__init__(board: List[List[str]], words: List[str])`
+#### `__init__(board: List[List[str]], words: List[str], official: bool = False)`
 
-Initialize a Boggle game instance with the given board and word list.
+Initialize a Boggle game instance with the given board, word list, and official status.
 
-- `board`: List of lists representing the Boggle game board.
+- `board`: List of lists representing the Boggle game board or a string representing a single row of the board.
 - `words`: List of strings representing valid words for the Boggle game.
+- `official`: Boolean indicating whether to enforce official Boggle rules (default is `False`).
 
 ### Methods
 
@@ -36,3 +37,35 @@ Retrieve a list of coordinates for each word found on the board.
 Print the results of the Boggle game, showing each word found and its corresponding positions.
 
 - Output: Prints each word found on the Boggle board along with its positions.
+
+#### `get_score() -> List[int]`
+
+Calculate and retrieve the score for each word found on the board.
+
+- Returns: List of integers representing the score for each word found.
+
+### Private Methods
+
+#### `__bogglefy()`
+
+Private method to convert a string representation of the board into a list of lists.
+
+#### `__check_board()`
+
+Private method to check if the board is valid.
+
+#### `__check_words()`
+
+Private method to check if the words are valid.
+
+#### `__check_official()`
+
+Private method to check if the official status is valid.
+
+#### `__algorithm()`
+
+Private method to call the algorithm for solver().
+
+#### `__search()`
+
+Private method that performs DFS on the boggle board. Used in conjunction with `__algorithm()`.
