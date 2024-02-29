@@ -40,6 +40,7 @@ from pyggle import Boggle
 board = [['e', 'a'], ['s', 't']]
 
 # if words is not passed as an argument, will utilize 479k words (all in English)
+# if official is not passed as an argument, will default to False (will find all words regardless of official rules)
 boggle = Boggle(board)
 
 # prints word: [coords of each character] format.
