@@ -16,29 +16,61 @@ pip install pyggle
 ```
 
 ## Usage
-
 ```python
 from pyggle import Boggle
 
-board = [['e', 'a'], ['s', 't']]
+board = "ea st"
 
-# this is only 3000 words, but the web demo will all utilize 380k words
-with open('sample_data.txt', 'r') as file:
-  words = [line.strip() for line in file]
+# if words is not passed as an argument of type list, will utilize 479k words (all in English)
+# if official is not given as a boolean argument, find all words regardless of length
+boggle = Boggle(board)
 
-boggle = Boggle(board, words)
-
-# if you initialize without an existing words list, it will utilize the 380k words list instead
-
-# print full dictionary
-print(boggle.solver())
-
-# print only words
-print(boggle.get_words())
-
-# print only coords
-print(boggle.get_coords())
-
-# print word: coord format
+# prints word: [coords of each character] format.
 boggle.print_result()
+```
+For more functions from `pyggle`, check [`lib/examples/example.py`](https://github.com/andrearcaina/pyggle/blob/main/lib/examples/example.py) or [`lib/docs/api-reference.md`](https://github.com/andrearcaina/pyggle/blob/main/lib/docs/api-reference.md)
+
+### Output
+I don't know how "ae" or "aes" or "ast" is a word, but here is where I got the [479k word list](https://github.com/dwyl/english-words)
+```bash
+a: [(0, 1)]
+ae: [(0, 1), (0, 0)]
+aes: [(0, 1), (0, 0), (1, 0)]
+aet: [(0, 1), (0, 0), (1, 1)]
+as: [(0, 1), (1, 0)]
+ase: [(0, 1), (1, 0), (0, 0)]
+ast: [(0, 1), (1, 0), (1, 1)]
+at: [(0, 1), (1, 1)]
+ate: [(0, 1), (1, 1), (0, 0)]
+ates: [(0, 1), (1, 1), (0, 0), (1, 0)]
+e: [(0, 0)]
+ea: [(0, 0), (0, 1)]
+east: [(0, 0), (0, 1), (1, 0), (1, 1)]
+eat: [(0, 0), (0, 1), (1, 1)]
+eats: [(0, 0), (0, 1), (1, 1), (1, 0)]
+es: [(0, 0), (1, 0)]
+est: [(0, 0), (1, 0), (1, 1)]
+et: [(0, 0), (1, 1)]
+eta: [(0, 0), (1, 1), (0, 1)]
+etas: [(0, 0), (1, 1), (0, 1), (1, 0)]
+s: [(1, 0)]
+sa: [(1, 0), (0, 1)]
+sae: [(1, 0), (0, 1), (0, 0)]
+sat: [(1, 0), (0, 1), (1, 1)]
+sate: [(1, 0), (0, 1), (1, 1), (0, 0)]
+se: [(1, 0), (0, 0)]
+sea: [(1, 0), (0, 0), (0, 1)]
+seat: [(1, 0), (0, 0), (0, 1), (1, 1)]
+set: [(1, 0), (0, 0), (1, 1)]
+seta: [(1, 0), (0, 0), (1, 1), (0, 1)]
+st: [(1, 0), (1, 1)]
+sta: [(1, 0), (1, 1), (0, 1)]
+t: [(1, 1)]
+ta: [(1, 1), (0, 1)]
+tae: [(1, 1), (0, 1), (0, 0)]
+tas: [(1, 1), (0, 1), (1, 0)]
+te: [(1, 1), (0, 0)]
+tea: [(1, 1), (0, 0), (0, 1)]
+teas: [(1, 1), (0, 0), (0, 1), (1, 0)]
+ts: [(1, 1), (1, 0)]
 ```
