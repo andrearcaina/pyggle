@@ -6,6 +6,13 @@ class Boggle:
         self.words = words
         self.official = official
 
+        if not self.words:
+            this_directory = os.path.abspath(os.path.dirname(__file__))
+            words_alpha_path = os.path.join(this_directory, "data", "words_alpha.txt")
+            
+            with open(words_alpha_path, "r") as f:
+                self.words = [word.strip() for word in f]
+
         if self.__check_board():
             raise TypeError("Board must be a list of lists or string")
         
@@ -17,13 +24,6 @@ class Boggle:
 
         if isinstance(self.board, str):
             self.board = self.__bogglefy()
-
-        if not self.words:
-            this_directory = os.path.abspath(os.path.dirname(__file__))
-            words_alpha_path = os.path.join(this_directory, "data", "words_alpha.txt")
-            
-            with open(words_alpha_path, "r") as f:
-                self.words = [word.strip() for word in f]
 
     def __bogglefy(self):
         return [list(row) for row in self.board.split()]
@@ -128,3 +128,11 @@ class Boggle:
 
         for word, positions in result.items():
             print("{}: {}".format(word, positions))
+
+if __name__ == "__main__":
+    board = [['e', 'a'], ['s', 't']]
+    
+    # given no words, will use 479k word list instead
+    boggle = Boggle(board)
+
+    boggle.print_result()
