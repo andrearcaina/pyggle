@@ -1,4 +1,5 @@
 import os
+from typing import Union
 
 class Boggle:
     def __init__(self, board, words=None, official=False):
@@ -25,21 +26,21 @@ class Boggle:
         if isinstance(self.board, str):
             self.board = self.__bogglefy()
 
-    def __bogglefy(self):
+    def __bogglefy(self) -> list[list[int]]:
         return [list(row) for row in self.board.split()]
 
-    def __check_board(self):
+    def __check_board(self) -> bool:
         sublist_type = all(isinstance(sublist, list) for sublist in self.board)
 
         return not (isinstance(self.board, list) and sublist_type) and not isinstance(self.board, str)
 
-    def __check_words(self):
+    def __check_words(self) -> bool:
         return not isinstance(self.words, list)
     
-    def __check_official(self):
+    def __check_official(self) -> bool:
         return not isinstance(self.official, bool)
 
-    def solver(self):
+    def solver(self) -> dict[str, list[tuple[int]]]:
         if self.official and self.get_length() < 3:
             return None
 
@@ -59,7 +60,7 @@ class Boggle:
 
         return result
 
-    def __algorithm(self, word, positions, rows, cols, result):
+    def __algorithm(self, word, positions, rows, cols, result) -> None:
         for i in range(rows):
             for j in range(cols):
                 if self.board[i][j] == word[0] and word not in result:
@@ -67,7 +68,7 @@ class Boggle:
                         result[word] = positions
 
 
-    def __search(self, word, x, y, rows, cols, positions):
+    def __search(self, word, x, y, rows, cols, positions) -> bool:
         if (x, y) in positions:
             return False
         if x < 0 or x >= rows or y < 0 or y >= cols:
@@ -90,22 +91,22 @@ class Boggle:
         positions.pop()
         return False
 
-    def get_length(self):
+    def get_length(self) -> int:
         return len([char for sublist in self.board for char in sublist])
 
-    def get_words(self):
+    def get_words(self) -> list:
         if not self.solver():
             return None
 
         return [key for key in self.solver().keys()]
 
-    def get_coords(self):
+    def get_coords(self) -> Union[list, None]:
         if not self.solver():
             return None
 
         return [value for value in self.solver().values()]
 
-    def get_score(self):
+    def get_score(self) -> list:
         score = []
         words = self.get_words()
         word_scores = {1: 1, 2: 1, 3: 1, 4: 1, 5: 2, 6: 3, 7: 5}
@@ -119,7 +120,7 @@ class Boggle:
 
         return score
 
-    def print_result(self):
+    def print_result(self) -> None:
         if not self.solver():
             print("No words!")
             return
@@ -128,11 +129,3 @@ class Boggle:
 
         for word, positions in result.items():
             print("{}: {}".format(word, positions))
-
-if __name__ == "__main__":
-    board = [['e', 'a'], ['s', 't']]
-    
-    # given no words, will use 479k word list instead
-    boggle = Boggle(board)
-
-    boggle.print_result()

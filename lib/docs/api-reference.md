@@ -20,6 +20,10 @@ Solve the Boggle game and return a dictionary of words found on the board along 
 
 - Returns: Dictionary where keys are words found on the board and values are lists of tuples representing the positions of the word on the board.
 
+#### `get_length() -> int`
+
+Calculate and retrieve the total length of the boggle board.
+
 #### `get_words() -> List[str]`
 
 Retrieve a list of words found on the board.
@@ -32,15 +36,15 @@ Retrieve a list of coordinates for each word found on the board.
 
 - Returns: List of lists where each inner list contains tuples representing the positions of a word on the Boggle board.
 
+#### `get_score() -> List[int]`
+
+Calculate and retrieve the score for each word found on the board.
+
 #### `print_result() -> None`
 
 Print the results of the Boggle game, showing each word found and its corresponding positions.
 
 - Output: Prints each word found on the Boggle board along with its positions.
-
-#### `get_score() -> List[int]`
-
-Calculate and retrieve the score for each word found on the board.
 
 - Returns: List of integers representing the score for each word found.
 
