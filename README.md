@@ -39,8 +39,8 @@ from pyggle import Boggle
 
 board = [['e', 'a'], ['s', 't']]
 
-# if words is not passed as an argument, will utilize 479k words (all in English)
-# if official is not passed as an argument, will default to False (will find all words regardless of official rules)
+# if words is not passed as an argument of type list, will utilize 479k words (all in English)
+# if official is not given as a boolean argument, find all words regardless of length
 boggle = Boggle(board)
 
 # prints word: [coords of each character] format.
