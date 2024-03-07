@@ -27,9 +27,6 @@ class Boggle:
         if isinstance(self.board, str):
             self.board = self.__bogglefy()
 
-    def __bogglefy(self) -> list[list[int]]:
-        return [list(row) for row in self.board.split()]
-
     def __check_board(self) -> bool:
         sublist_type = all(isinstance(sublist, list) for sublist in self.board)
 
@@ -41,6 +38,9 @@ class Boggle:
     def __check_official(self) -> bool:
         return not isinstance(self.official, bool)
 
+    def __bogglefy(self) -> list[list[int]]:
+        return [list(row) for row in self.board.split()]
+    
     def __filter(self) -> list:
         if not self.official:
             return [word for word in self.words if len(word) <= self.get_length()]
