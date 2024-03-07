@@ -43,7 +43,7 @@ class Boggle:
 
     def solver(self) -> dict[str, list[tuple[int]]]:
         if self.official and self.get_length() < 3:
-            return None
+            return {}
 
         result = {}
         rows = len(self.board)
