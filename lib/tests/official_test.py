@@ -1,5 +1,5 @@
 import unittest
-from pyggle import Boggle
+from pyggle.boggle import Boggle
 
 # this is testing when total board length < official length (which is 3)
 

@@ -1,5 +1,5 @@
 import unittest
-from pyggle import Boggle
+from pyggle.boggle import Boggle
 
 # testing 2x2 boards through string or list of lists with or without words
 
