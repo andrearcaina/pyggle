@@ -3,7 +3,7 @@
 </h1>
 
 # Pyggle
-Find all possible words given a boggle board and words (or none!), with a visual representation on how the algorithm works!
+Find all possible words given a boggle board and words (or none!), with a visual representation on how the algorithm works on the web!
 
 Web Demo: [Coming Soon!](https://github.com/andrearcaina/pyggle)
 
