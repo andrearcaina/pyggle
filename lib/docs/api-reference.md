@@ -12,6 +12,24 @@ Initialize a Boggle game instance with the given board, word list, and official 
 - `words`: List of strings representing valid words for the Boggle game.
 - `official`: Boolean indicating whether to enforce official Boggle rules (default is `False`).
 
+### Dunder Methods
+
+#### `__print__()`
+
+Special method that prints the given board as a string. Used in conjunction with `print_board()`.
+
+#### `__str__()`
+
+Special method that prints the does the same thing as `__stringify()`.
+
+#### `__getitem__()`
+
+Special method that allows you to access elements of the boggle board from the object.
+
+#### `__contains__()`
+
+Special method that allows you to check if the solutions from the boggle board contains a specific word.
+
 ### Methods
 
 #### `solver() -> Dict[str, List[Tuple[int, int]]]`
@@ -91,21 +109,3 @@ Private method that performs DFS on the boggle board. Used in conjunction with `
 #### `__filter()`
 
 Private method that filters the words in the list of words dependent on `self.official`.
-
-### Dunder Methods
-
-#### `__print__()`
-
-Special method that prints the given board as a string. Used in conjunction with `print_board()`.
-
-#### `__str__()`
-
-Special method that prints the does the same thing as `__stringify()`.
-
-#### `__getitem__()`
-
-Special method that allows you to access elements of the boggle board from the object.
-
-#### `__contains__()`
-
-Special method that allows you to check if the solutions from the boggle board contains a specific word.

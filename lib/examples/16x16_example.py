@@ -1,5 +1,4 @@
 from pyggle import Boggle
-import timeit
 
 if __name__ == "__main__":
     board = [["a", "q", "o", "a", "u", "s", "i", "e", "a", "r", "t", "u", "e", "l", "r", "o"],

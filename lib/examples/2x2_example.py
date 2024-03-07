@@ -9,7 +9,7 @@ if __name__ == "__main__":
     with open('sample_data.txt', 'r') as file:
         words = [line.strip() for line in file]
     
-    # the second adn third argument are optional
+    # the second and third argument are optional
     # if words is not given, will default to 479k word list
     # if official is not given, will default to False (will return all words, regardless of length)
     # official means "official rules of Boggle game"
@@ -24,8 +24,8 @@ if __name__ == "__main__":
     # print only coords
     print(boggle.get_coords())
 
-    # print score of each word
-    print(boggle.get_score())
+    # get total score
+    print(boggle.get_score()) # 6
 
     # print time to solve boggle board
     print(boggle.time_solve()) # roughly 0.001 seconds

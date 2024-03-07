@@ -3,11 +3,13 @@
 </h1>
 
 # Pyggle
+
 Find all possible words given a boggle board and words (or none!), with a visual representation on how the algorithm works on the web!
 
 Web Demo: [Coming Soon!](https://github.com/andrearcaina/pyggle)
 
 ## Tech Stack
+
 [![JAVASCRIPT](https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=FFF)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![NEXT.JS](https://img.shields.io/badge/NEXT-0769AD?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![TAILWINDCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/) \
@@ -18,7 +20,7 @@ The frontend is developed using `TypeScript` and the Next.js framework, with Tai
 ![OpenCV](https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white)
 ![EasyOCR](https://img.shields.io/badge/easyocr-008080?style=for-the-badge&logo=python&logoColor=white) \
 The backend framework chosen for this project is FastAPI, a performant `Python`-based web framework. In FastAPI, I create API endpoints to communicate with the frontend (the client).
-These endpoints are designed to decipher the given boggle board from the client and return all possible combinations, coordinates, and score using **Pyggle**. 
+These endpoints are designed to decipher the given boggle board from the client and return all possible combinations, coordinates, and score using **Pyggle**.
 The user can also send an image of a boggle board where I use **OpenCV** to preprocess the image and use **EasyOCR** to accurately retrieve the characters from the boggle board.
 
 The words and coordinates are then sent to the client as a JSON payload for the frontend to render.
@@ -34,6 +36,7 @@ pip install pyggle
 ```
 
 ## Usage
+
 ```python
 from pyggle import Boggle
 
@@ -46,10 +49,13 @@ boggle = Boggle(board)
 # prints word: [coords of each character] format.
 boggle.print_result()
 ```
-For more functions from `pyggle`, check [`lib/examples/example.py`](https://github.com/andrearcaina/pyggle/blob/main/lib/examples/example.py) or [`lib/docs/api-reference.md`](https://github.com/andrearcaina/pyggle/blob/main/lib/docs/api-reference.md)
+
+For more functions from `pyggle`, check [`lib/examples/2x2_example.py`](https://github.com/andrearcaina/pyggle/blob/main/lib/examples/2x2_example.py) or [`lib/docs/api-reference.md`](https://github.com/andrearcaina/pyggle/blob/main/lib/docs/api-reference.md)
 
 ### Output
+
 I don't know how "ae" or "aes" or "ast" is a word, but here is where I got the [479k word list](https://github.com/dwyl/english-words)
+
 ```bash
 a: [(0, 1)]
 ae: [(0, 1), (0, 0)]
@@ -92,4 +98,3 @@ tea: [(1, 1), (0, 0), (0, 1)]
 teas: [(1, 1), (0, 0), (0, 1), (1, 0)]
 ts: [(1, 1), (1, 0)]
 ```
-

@@ -1,5 +1,4 @@
 from pyggle import Boggle
-import timeit
 
 if __name__ == "__main__":
     board = "isuo osve nepa ntsu"
@@ -9,6 +8,6 @@ if __name__ == "__main__":
 
     boggle = Boggle(board, words, True)
 
-    boggle.print_result()
-    
-    print(boggle.time_solve())
+    print(boggle.time_solve()) # 0.01 seconds
+
+    print(boggle.get_score()) # 30

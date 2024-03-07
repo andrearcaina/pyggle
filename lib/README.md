@@ -16,6 +16,7 @@ pip install pyggle
 ```
 
 ## Usage
+
 ```python
 from pyggle import Boggle
 
@@ -28,10 +29,13 @@ boggle = Boggle(board)
 # prints word: [coords of each character] format.
 boggle.print_result()
 ```
-For more functions from `pyggle`, check [`lib/examples/example.py`](https://github.com/andrearcaina/pyggle/blob/main/lib/examples/example.py) or [`lib/docs/api-reference.md`](https://github.com/andrearcaina/pyggle/blob/main/lib/docs/api-reference.md)
+
+For more functions from `pyggle`, check [`lib/examples/2x2_example.py`](https://github.com/andrearcaina/pyggle/blob/main/lib/examples/2x2_example.py) or [`lib/docs/api-reference.md`](https://github.com/andrearcaina/pyggle/blob/main/lib/docs/api-reference.md)
 
 ### Output
+
 I don't know how "ae" or "aes" or "ast" is a word, but here is where I got the [479k word list](https://github.com/dwyl/english-words)
+
 ```bash
 a: [(0, 1)]
 ae: [(0, 1), (0, 0)]
