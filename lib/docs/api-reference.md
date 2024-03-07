@@ -72,8 +72,12 @@ Private method to check if the official status is valid.
 
 #### `__algorithm()`
 
-Private method to call the algorithm for solver().
+Private method to call the algorithm for `solver()`.
 
 #### `__search()`
 
 Private method that performs DFS on the boggle board. Used in conjunction with `__algorithm()`.
+
+#### `__filter()`
+
+Private method that filters the words in the list of words dependent on `self.official`.

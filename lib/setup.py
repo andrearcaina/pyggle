@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 from os import path
 
 # python -m build
-# twine upload dist/pyggle-1.0.9.tar.gz
+# twine upload dist/*
 
 this_directory = path.abspath(path.dirname(__file__))
 with open(path.join(this_directory, "README.md"), "r", encoding="utf-8") as f:
@@ -10,7 +10,7 @@ with open(path.join(this_directory, "README.md"), "r", encoding="utf-8") as f:
 
 setup(
     name='pyggle',
-    version='1.0.9',
+    version='1.1.0',
     author='Andre Arcaina',
     author_email='dtandre331@gmail.com',
     description='Python-based package that allows you to solve any N x M Boggle board.',
