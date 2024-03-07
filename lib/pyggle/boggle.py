@@ -41,25 +41,10 @@ class Boggle:
     def __check_official(self) -> bool:
         return not isinstance(self.official, bool)
 
-    def solver(self) -> dict[str, list[tuple[int]]]:
-        if self.official and self.get_length() < 3:
-            return {}
-
-        result = {}
-        rows = len(self.board)
-        cols = len(self.board[0])
-        length = rows * cols
-
-        for word in self.words:
-            positions = []
-            if not self.official:
-                if len(word) <= length:
-                    self.__algorithm(word, positions, rows, cols, result)
-            else:
-                if len(word) >= 3 and len(word) <= length:
-                    self.__algorithm(word, positions, rows, cols, result)
-
-        return result
+    def __filter(self) -> list:
+        if not self.official:
+            return [word for word in self.words if len(word) <= self.get_length()]
+        return [word for word in self.words if len(word) >= 3 and len(word) <= self.get_length()]
 
     def __algorithm(self, word, positions, rows, cols, result) -> None:
         for i in range(rows):
@@ -67,7 +52,6 @@ class Boggle:
                 if self.board[i][j] == word[0] and word not in result:
                     if self.__search(word, i, j, rows, cols, positions):
                         result[word] = positions
-
 
     def __search(self, word, x, y, rows, cols, positions) -> bool:
         if (x, y) in positions:
@@ -91,6 +75,21 @@ class Boggle:
 
         positions.pop()
         return False
+    
+    def solver(self) -> dict[str, list[tuple[int]]]:
+        if self.official and self.get_length() < 3:
+            return {}
+
+        result = {}
+        rows = len(self.board)
+        cols = len(self.board[0])
+        length = rows * cols
+        
+        for word in self.__filter():
+            positions = []
+            self.__algorithm(word, positions, rows, cols, result)
+
+        return result
 
     def get_length(self) -> int:
         return len([char for sublist in self.board for char in sublist])
