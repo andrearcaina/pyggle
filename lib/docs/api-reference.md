@@ -40,6 +40,10 @@ Retrieve a list of coordinates for each word found on the board.
 
 Calculate and retrieve the score for each word found on the board.
 
+#### `time_solve() -> float`
+
+Return how long it takes to solve the given boggle board and given list of words.
+
 #### `print_result() -> None`
 
 Print the results of the Boggle game, showing each word found and its corresponding positions.

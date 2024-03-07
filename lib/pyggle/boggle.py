@@ -1,5 +1,6 @@
 import os
 from typing import Union
+from timeit import timeit
 
 class Boggle:
     def __init__(self, board, words=None, official=False):
@@ -122,6 +123,9 @@ class Boggle:
                 score.append(11)
 
         return score
+
+    def time_solve(self) -> float:
+        return timeit(self.solver, number=1)
 
     def print_result(self) -> None:
         if not self.solver():
