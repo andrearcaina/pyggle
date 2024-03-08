@@ -1,7 +1,8 @@
 from fastapi import FastAPI
 from typing import Union
 from api.helpers.get_boggle import possibilities as boggle_possibilities
-from api.helpers.detect_img import *
+# from api.helpers.detect_img import * 
+# commented out detect_img for testing purposes
 
 app = FastAPI()
 

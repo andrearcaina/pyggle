@@ -15,11 +15,8 @@ def check(words):
 
     return words
 
-def bogglefy(board):
-    return [list(row) for row in board.split()]
-
 def possibilities(board, function, given_words=None):
-    boggle = Boggle(bogglefy(board), check(given_words))
+    boggle = Boggle(board, check(given_words))
 
     if function:
         return boggle.get_words()
