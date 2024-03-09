@@ -7,4 +7,4 @@ if __name__ == "__main__":
 
     print(boggle.time_solve()) # 1.26 seconds
 
-    print(boggle.get_score()) # 209
+    print(sum(boggle.get_score())) # 209

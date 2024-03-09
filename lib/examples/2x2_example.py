@@ -25,7 +25,7 @@ if __name__ == "__main__":
     print(boggle.get_coords())
 
     # get total score
-    print(boggle.get_score()) # 6
+    print(sum(boggle.get_score())) # 6
 
     # print time to solve boggle board
     print(boggle.time_solve()) # roughly 0.001 seconds

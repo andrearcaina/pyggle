@@ -56,7 +56,10 @@ Retrieve a list of coordinates for each word found on the board.
 
 #### `get_score() -> List[int]`
 
-Calculate and retrieve the score for each word found on the board.
+Calculate and retrieve the score for each word found on the board dependent on the length of word.
+
+- When official = `False`, words of length 1 and 2 are equal to one point.
+- Every word of length 3 and above adheres to official rules of the game Boggle.
 
 #### `time_solve() -> float`
 

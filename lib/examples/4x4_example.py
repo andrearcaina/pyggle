@@ -8,6 +8,6 @@ if __name__ == "__main__":
 
     boggle = Boggle(board, words, True)
 
-    print(boggle.time_solve()) # 0.01 seconds
+    print(boggle.time_solve()) # roughly 0.02
 
-    print(boggle.get_score()) # 30
+    print(sum(boggle.get_score())) # 30

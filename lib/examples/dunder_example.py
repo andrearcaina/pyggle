@@ -3,10 +3,7 @@ from pyggle import Boggle
 if __name__ == "__main__":
     board = "ea st"
 
-    with open('sample_data.txt', 'r') as file:
-        words = [line.strip() for line in file]
-
-    boggle = Boggle(board, words)
+    boggle = Boggle(board)
 
     # converting to a string
     string_boggle = str(boggle)

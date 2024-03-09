@@ -1,19 +1,43 @@
-from fastapi import FastAPI
 from typing import Union
-from api.helpers.get_boggle import possibilities as boggle_possibilities
+from fastapi import FastAPI
+from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
+from api.helpers.get_boggle import found_words, coordinates, scores
 # from api.helpers.detect_img import * 
 # commented out detect_img for testing purposes
 
 app = FastAPI()
 
+# CORS middleware to Next.js host number
+app.add_middleware(
+    CORSMiddleware, 
+    allow_origins=['http://localhost:3000'],
+    allow_credentials=True, 
+    allow_methods=['*'], # allow all HTTP methods 
+    allow_headers=['*']
+)
+
+# testing purposes
+@app.get("/api/data")
+async def return_data():
+    result = {"Hello": "World!"}
+    return JSONResponse(content=result)
+
 @app.get("/api/words")
-async def return_words(board: str, words: Union[str, None] = None):
-    return boggle_possibilities(board, True, words)
+async def return_words(board: str, words: Union[str, None] = None, official: bool = False):
+    all_words = found_words(board, words, official)
+    return JSONResponse(content=all_words)
 
 @app.get("/api/coords")
-async def return_coords(board: str, words: Union[str, None] = None):
-    return boggle_possibilities(board, False, words)
+async def return_coords(board: str, words: Union[str, None] = None, official: bool = False):
+    all_coords = coordinates(board, words, official)
+    return JSONResponse(content=all_coords)
 
-@app.get("/api/detect")
+@app.get("/api/scores")
+async def return_coords(board: str, words: Union[str, None] = None, official: bool = False):
+    all_scores = scores(board, words, official)
+    return JSONResponse(content=all_scores)
+
+@app.post("/api/detect") # post method cuz of update of image/data
 async def return_image():
     return {"image": "detection"}

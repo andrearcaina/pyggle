@@ -77,13 +77,13 @@ class Boggle:
 
         return [value for value in self.solver().values()]
 
-    def get_score(self) -> int:
+    def get_score(self) -> list[int]:
         score = []
         words = self.get_words()
         word_scores = {1: 1, 2: 1, 3: 1, 4: 1, 5: 2, 6: 3, 7: 5}
 
         if not words:
-            return 0
+            return []
 
         for word in words:
             word_length = len(word)
@@ -92,7 +92,7 @@ class Boggle:
             else:
                 score.append(11)
 
-        return sum(score)
+        return score
 
     def time_solve(self) -> float:
         return timeit(self.solver, number=1)
