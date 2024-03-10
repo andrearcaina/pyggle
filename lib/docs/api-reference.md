@@ -4,7 +4,7 @@
 
 ### Constructor
 
-#### `__init__(board: List[List[str]], words: List[str], official: bool = False)`
+#### `__init__(board: List[List[str]], words: list[str], official: bool = False)`
 
 Initialize a Boggle game instance with the given board, word list, and official status.
 
@@ -14,25 +14,25 @@ Initialize a Boggle game instance with the given board, word list, and official 
 
 ### Dunder Methods
 
-#### `__print__()`
+#### `__print__() -> None`
 
 Special method that prints the given board as a string. Used in conjunction with `print_board()`.
 
-#### `__str__()`
+#### `__str__() -> str`
 
 Special method that prints the does the same thing as `__stringify()`.
 
-#### `__getitem__()`
+#### `__getitem__() -> str`
 
 Special method that allows you to access elements of the boggle board from the object.
 
-#### `__contains__()`
+#### `__contains__() -> bool`
 
 Special method that allows you to check if the solutions from the boggle board contains a specific word.
 
 ### Methods
 
-#### `solver() -> Dict[str, List[Tuple[int, int]]]`
+#### `solver() -> Dict[str, list[tuple[int, int]]]`
 
 Solve the Boggle game and return a dictionary of words found on the board along with their positions.
 
@@ -42,19 +42,19 @@ Solve the Boggle game and return a dictionary of words found on the board along 
 
 Calculate and retrieve the total length of the boggle board.
 
-#### `get_words() -> List[str]`
+#### `get_words() -> list[str]`
 
 Retrieve a list of words found on the board.
 
 - Returns: List of strings representing words found on the Boggle board.
 
-#### `get_coords() -> List[List[Tuple[int, int]]]`
+#### `get_coords() -> list[list[tuple[int, int]]]`
 
 Retrieve a list of coordinates for each word found on the board.
 
 - Returns: List of lists where each inner list contains tuples representing the positions of a word on the Boggle board.
 
-#### `get_score() -> List[int]`
+#### `get_score() -> list[int]`
 
 Calculate and retrieve the score for each word found on the board dependent on the length of word.
 
@@ -81,34 +81,38 @@ Print the board of the Boggle game, showing each letter as a visual representati
 
 ### Private Methods
 
-#### `__bogglefy()`
+#### `__bogglefy() -> list[list[int]]`
 
 Private method to convert a string representation of the board into a list of lists.
 
-#### `__stringify()`
+#### `__stringify() -> str`
 
 Private method to convert the board into a string representation. Used in conjunction with `print_board()`.
 
-#### `__check_board()`
+#### `__check_board() -> bool`
 
 Private method to check if the board is valid.
 
-#### `__check_words()`
+#### `__check_words() -> bool`
 
 Private method to check if the words are valid.
 
-#### `__check_official()`
+#### `__check_official() -> bool`
 
 Private method to check if the official status is valid.
 
-#### `__algorithm()`
+#### `__algorithm() -> None`
 
-Private method to call the algorithm for `solver()`.
+Private method to call the `__search()` algorithm for `solver()`.
 
-#### `__search()`
+#### `__search() -> bool`
 
-Private method that performs DFS on the boggle board. Used in conjunction with `__algorithm()`.
+Private method that performs DFS on the boggle board. 
 
-#### `__filter()`
+- Finds all possible words and the coordinates of those words represented as a list of tuples.
+- Returns true and simultaneously modifies the existing positions list, or false indicating that the word is not there. 
+- Used in conjunction with `__algorithm()`.
+
+#### `__filter() -> list`
 
 Private method that filters the words in the list of words dependent on `self.official`.
