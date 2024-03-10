@@ -20,4 +20,4 @@ if __name__ == "__main__":
 
     boggle = Boggle(board)
 
-    print(boggle.time_solve()) # roughly 26 seconds
+    print(boggle.time_solve()) # roughly 24.59 seconds

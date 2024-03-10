@@ -5,6 +5,6 @@ if __name__ == "__main__":
 
     boggle = Boggle(board, None, True)
 
-    print(boggle.time_solve()) # 1.26 seconds
+    print(boggle.time_solve()) # 1.13 seconds
 
     print(sum(boggle.get_score())) # 209

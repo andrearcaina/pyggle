@@ -15,6 +15,9 @@ if __name__ == "__main__":
     # official means "official rules of Boggle game"
     boggle = Boggle(board, words, True)
 
+    # print time to solve boggle board
+    print(boggle.time_solve()) # roughly 0.001 seconds
+
     # print full dictionary
     print(boggle.solver())
     
@@ -24,11 +27,11 @@ if __name__ == "__main__":
     # print only coords
     print(boggle.get_coords())
 
+    # get length of boggle
+    print(boggle.get_length()) # 4    
+
     # get total score
     print(sum(boggle.get_score())) # 6
-
-    # print time to solve boggle board
-    print(boggle.time_solve()) # roughly 0.001 seconds
 
     # print word: coord format
     boggle.print_result()

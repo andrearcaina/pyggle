@@ -54,7 +54,6 @@ class Boggle:
         result = {}
         rows = len(self.board)
         cols = len(self.board[0])
-        length = rows * cols
         
         for word in self.__filter():
             positions = []
@@ -63,7 +62,7 @@ class Boggle:
         return result
 
     def get_length(self) -> int:
-        return len([char for sublist in self.board for char in sublist])
+        return len(self.board) * len(self.board[0])
 
     def get_words(self) -> list:
         if not self.solver():
