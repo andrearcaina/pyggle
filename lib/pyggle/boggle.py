@@ -104,7 +104,7 @@ class Boggle:
         result = self.solver()
 
         for word, positions in result.items():
-            print("{}: {}".format(word, positions))
+            print(f"{word}: {positions}")
 
     def print_board(self) -> None:
         print(self.__stringify())
