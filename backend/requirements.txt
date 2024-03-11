@@ -37,6 +37,6 @@ tifffile==2024.2.12
 torch==2.2.1
 torchvision==0.17.1
 typing_extensions==4.10.0
-uvicorn==0.27.1
+uvicorn==0.28.0
 watchfiles==0.21.0
 websockets==12.0
