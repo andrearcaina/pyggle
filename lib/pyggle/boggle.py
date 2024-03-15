@@ -3,7 +3,7 @@ from typing import Union
 from timeit import timeit
 
 class Boggle:
-    def __init__(self, board: list[list[str]], words: list[str] = [], official: bool = False):
+    def __init__(self, board: Union[list[list[str]], str], words: list[str] = [], official: bool = False):
         self.board = board
         self.words = words
         self.official = official
