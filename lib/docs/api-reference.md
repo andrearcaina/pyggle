@@ -101,9 +101,13 @@ Private method to check if the words are valid.
 
 Private method to check if the official status is valid.
 
+#### `__filter() -> None`
+
+Private method that filters the words in the list of words dependent on `self.official`, and calls `__algorithm()` based on the length of the word.
+
 #### `__algorithm() -> None`
 
-Private method to call the `__search()` algorithm for `solver()`.
+Private method to call the `__search()` algorithm for `__filter()`.
 
 #### `__search() -> bool`
 
@@ -112,7 +116,3 @@ Private method that performs DFS on the boggle board.
 - Finds all possible words and the coordinates of those words represented as a list of tuples.
 - Returns true and simultaneously modifies the existing positions list, or false indicating that the word is not there. 
 - Used in conjunction with `__algorithm()`.
-
-#### `__filter() -> list`
-
-Private method that filters the words in the list of words dependent on `self.official`.

@@ -55,9 +55,8 @@ class Boggle:
         rows = len(self.board)
         cols = len(self.board[0])
         
-        for word in self.__filter():
-            positions = []
-            self.__algorithm(word, positions, rows, cols, result)
+        for word in self.words:
+            self.__filter(word, [], rows, cols, result)
 
         return result
 
@@ -126,10 +125,13 @@ class Boggle:
     def __stringify(self) -> str:
         return "\n".join([" ".join(row) for row in self.board])
 
-    def __filter(self) -> list:
+    def __filter(self, word: str, positions: list, rows: int, cols: int, result: dict) -> None:
         if not self.official:
-            return [word for word in self.words if len(word) <= self.get_length()]
-        return [word for word in self.words if len(word) >= 3 and len(word) <= self.get_length()]
+            if len(word) <= self.get_length():
+                self.__algorithm(word, positions, rows, cols, result)
+        else:
+            if len(word) >= 3 and len(word) <= self.get_length():
+                self.__algorithm(word, positions, rows, cols, result)
 
     def __algorithm(self, word: str, positions: list, rows: int, cols: int, result: dict) -> None:
         for i in range(rows):
