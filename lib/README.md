@@ -17,26 +17,37 @@ pip install pyggle
 
 ## Usage
 
-Input is case sensitive! (for the board)
+Input is case sensitive (for the board).
+
+The input would consist of: an N x M board as a string with rows separated by spaces. Alternatively, you can pass in a list of lists where each element is the character on the board.
+
+If words is not passed as an argument, it will utilize a text file that consists of [479k](https://github.com/dwyl/english-words) words.
+
+If official is not given as a boolean argument, find all words regardless of length, and the letter 'Q' is not represented as 'Qu'.
+If official is passed as a boolean argument, then the algorithm follows the official rules of boggle. Pyggle will solve and:
+
+- find all words that have a length greater than 3.
+- The letter 'Q' is now represented as 'Qu'.
 
 ```python
 from pyggle import Boggle
 
-board = "ea st" # or [["e", "a"], ["s", "t"]], both work
+board = "ea st"
 
-# if words is not passed as an argument of type list, will utilize 479k words (all in English)
-# if official is not given as a boolean argument, find all words regardless of length
 boggle = Boggle(board)
 
-# prints word: [coords of each character] format.
 boggle.print_result()
 ```
 
-For more functions from `pyggle`, check [`lib/examples/2x2_example.py`](https://github.com/andrearcaina/pyggle/blob/main/lib/examples/2x2_example.py) or [`lib/docs/boggle-api.md`](https://github.com/andrearcaina/pyggle/blob/main/lib/docs/boggle-api.md)
+For more functions from `pyggle`, check:
+
+- [`lib/examples/2x2_example.py`](https://github.com/andrearcaina/pyggle/blob/main/lib/examples/2x2_example.py) for general functions and more specificity
+- [`lib/examples/qu_example.py`](https://github.com/andrearcaina/pyggle/blob/main/lib/examples/qu_example.py) for an example where the letter 'Q' represents 'Qu'
+- [`lib/docs/boggle-api.md`](https://github.com/andrearcaina/pyggle/blob/main/lib/docs/boggle-api.md) for an understanding of each method
 
 ### Output
 
-I don't know how "ae" or "aes" or "ast" is a word, but here is where I got the [479k word list](https://github.com/dwyl/english-words)
+I don't know how "ae" or "aes" or "ast" is a word, but w/e :P
 
 ```bash
 a: [(0, 1)]
