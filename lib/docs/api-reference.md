@@ -32,7 +32,7 @@ Special method that allows you to check if the solutions from the boggle board c
 
 ### Methods
 
-#### `solver() -> Dict[str, list[tuple[int, int]]]`
+#### `solve() -> Dict[str, list[tuple[int, int]]]`
 
 Solve the Boggle game and return a dictionary of words found on the board along with their positions.
 
