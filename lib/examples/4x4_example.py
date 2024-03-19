@@ -1,4 +1,4 @@
-from pyggle import Boggle
+from pyggle import Boggle, time, score
 
 if __name__ == "__main__":
     board = "isuo osve nepa ntsu"
@@ -8,6 +8,6 @@ if __name__ == "__main__":
 
     boggle = Boggle(board, words, True)# print time to solve boggle board
 
-    print(boggle.time_solve()) # roughly 0.01 seconds
+    print(time(boggle)) # roughly 0.01 seconds
 
-    print(sum(boggle.get_score())) # 30
+    print(sum(score(boggle))) # 30

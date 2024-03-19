@@ -47,7 +47,7 @@ class Boggle:
     def __contains__(self, word: str) -> bool:
         return word in self.get_words()
     
-    def solve(self) -> dict[str, list[tuple[int]]]:
+    def solve(self) -> dict[str, list[tuple[int, int]]]:
         if self.official and self.get_length() < 3:
             return {}
 
@@ -63,13 +63,13 @@ class Boggle:
     def get_length(self) -> int:
         return len(self.board) * len(self.board[0])
 
-    def get_words(self) -> list:
+    def get_words(self) -> list[str]:
         if not self.solve():
             return []
 
         return [key for key in self.solve().keys()]
 
-    def get_coords(self) -> list:
+    def get_coords(self) -> list[tuple[int, int]]:
         if not self.solve():
             return []
 
@@ -174,19 +174,3 @@ class Boggle:
 
         positions.pop()
         return False
-
-# functions for pythonic function calls
-def solve(boggle: Boggle) -> dict[str, list[tuple[int]]]:
-    return boggle.solve()
-
-def time(boggle: Boggle) -> float:
-    return boggle.time_solve()
-
-def words(boggle: Boggle) -> list[str]:
-    return boggle.get_words()
-
-def coords(boggle: Boggle) -> list[tuple[int]]:
-    return boggle.get_coords()
-
-def score(boggle: Boggle) -> list[int]:
-    return boggle.get_score()

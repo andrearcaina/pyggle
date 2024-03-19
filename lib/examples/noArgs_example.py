@@ -1,4 +1,4 @@
-from pyggle import Boggle 
+from pyggle import Boggle, time
 
 if __name__ == "__main__":
     board = [['e', 'a'], ['s', 't']]
@@ -6,4 +6,4 @@ if __name__ == "__main__":
     # given no words, will use 479k word list instead
     boggle = Boggle(board)
 
-    print(boggle.time_solve()) # 0.04 seconds
+    print(time(boggle)) # 0.04 seconds

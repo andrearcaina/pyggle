@@ -1,10 +1,10 @@
-from pyggle import Boggle
+from pyggle import Boggle, time, score
 
 if __name__ == "__main__":
     board = "aesob fghik lmtrs"
 
     boggle = Boggle(board, None, True)
 
-    print(boggle.time_solve()) # 1.13 seconds
+    print(time(boggle)) # 1.13 seconds
 
-    print(sum(boggle.get_score())) # 209
+    print(sum(score(boggle))) # 209

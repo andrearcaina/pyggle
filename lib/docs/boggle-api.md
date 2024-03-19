@@ -111,36 +111,12 @@ Private method to call the `__search()` algorithm for `__filter()`.
 
 #### `__search() -> bool`
 
-Private method that performs DFS on the boggle board. 
+Private method that performs DFS on the boggle board.
 
 - Finds all possible words and the coordinates of those words represented as a list of tuples.
-- Returns true and simultaneously modifies the existing positions list, or false indicating that the word is not there. 
+- Returns true and simultaneously modifies the existing positions list, or false indicating that the word is not there.
 - Used in conjunction with `__algorithm()` and `__traverse_directions()`.
 
 #### `__traverse_directions() -> bool`
 
-Private method that performs the next direction given the inputs from `__search()`. 
-
-## Pythonic Functions
-
-#### solve(boggle: Boggle) -> 
-
-#### solve(boggle: Boggle) -> dict[str, list[tuple[int]]]:
-
-Same as `boggle.solve()`.
-
-#### time(boggle: Boggle) -> float:
-
-Same as `boggle.time_solve()`.
-
-#### words(boggle: Boggle) -> list[str]:
-
-Same as `boggle.get_words()`.
-
-#### coords(boggle: Boggle) -> list[tuple[int]]:
-
-Same as `boggle.get_coords()`.
-
-#### score(boggle: Boggle) -> list[int]:
-
-Same as `boggle.get_score()`.
+Private method that performs the next direction given the inputs from `__search()`.

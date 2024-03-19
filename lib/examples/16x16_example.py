@@ -1,4 +1,4 @@
-from pyggle import Boggle
+from pyggle import Boggle, time
 
 if __name__ == "__main__":
     board = [["a", "q", "o", "a", "u", "s", "i", "e", "a", "r", "t", "u", "e", "l", "r", "o"],
@@ -20,4 +20,4 @@ if __name__ == "__main__":
 
     boggle = Boggle(board)
 
-    print(boggle.time_solve()) # roughly 24.59 seconds
+    print(time(boggle)) # roughly 24.59 seconds

@@ -1,7 +1,9 @@
-import pyggle as py
+from pyggle import Boggle, time
 
-boggle = py.Boggle("aqa dsf", [], True)
+if __name__ == "__main__":
+    boggle = Boggle("aqa dsf", [], True)
 
-boggle.print_result()
+    # the letter "q" now represents "qu" in official rules
+    boggle.print_result()
 
-print(boggle.time_solve()) # about 0.13 seconds
+    print(time(boggle)) # about 0.13 seconds

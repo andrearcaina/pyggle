@@ -16,7 +16,9 @@ pip install pyggle
 ```
 
 ## Usage
+
 Input is case sensitive! (for the board)
+
 ```python
 from pyggle import Boggle
 
@@ -30,7 +32,7 @@ boggle = Boggle(board)
 boggle.print_result()
 ```
 
-For more functions from `pyggle`, check [`lib/examples/2x2_example.py`](https://github.com/andrearcaina/pyggle/blob/main/lib/examples/2x2_example.py) or [`lib/docs/api-reference.md`](https://github.com/andrearcaina/pyggle/blob/main/lib/docs/api-reference.md)
+For more functions from `pyggle`, check [`lib/examples/2x2_example.py`](https://github.com/andrearcaina/pyggle/blob/main/lib/examples/2x2_example.py) or [`lib/docs/boggle-api.md`](https://github.com/andrearcaina/pyggle/blob/main/lib/docs/boggle-api.md)
 
 ### Output
 
