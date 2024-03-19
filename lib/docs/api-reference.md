@@ -115,7 +115,11 @@ Private method that performs DFS on the boggle board.
 
 - Finds all possible words and the coordinates of those words represented as a list of tuples.
 - Returns true and simultaneously modifies the existing positions list, or false indicating that the word is not there. 
-- Used in conjunction with `__algorithm()`.
+- Used in conjunction with `__algorithm()` and `__traverse_directions()`.
+
+#### `__traverse_directions() -> bool`
+
+Private method that performs the next direction given the inputs from `__search()`. 
 
 ## Pythonic Functions
 
