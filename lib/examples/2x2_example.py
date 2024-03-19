@@ -1,5 +1,4 @@
-from pyggle import Boggle 
-import timeit
+from pyggle import *
 
 if __name__ == "__main__":
     board = "ea st"
@@ -19,8 +18,8 @@ if __name__ == "__main__":
     print(boggle.time_solve()) # roughly 0.001 seconds
 
     # print full dictionary
-    print(boggle.solver())
-    
+    print(boggle.solve())
+
     # print only words
     print(boggle.get_words())
 

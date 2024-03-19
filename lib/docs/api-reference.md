@@ -116,3 +116,27 @@ Private method that performs DFS on the boggle board.
 - Finds all possible words and the coordinates of those words represented as a list of tuples.
 - Returns true and simultaneously modifies the existing positions list, or false indicating that the word is not there. 
 - Used in conjunction with `__algorithm()`.
+
+## Pythonic Functions
+
+#### solve(boggle: Boggle) -> 
+
+#### solve(boggle: Boggle) -> dict[str, list[tuple[int]]]:
+
+Same as `boggle.solve()`.
+
+#### time(boggle: Boggle) -> float:
+
+Same as `boggle.time_solve()`.
+
+#### words(boggle: Boggle) -> list[str]:
+
+Same as `boggle.get_words()`.
+
+#### coords(boggle: Boggle) -> list[tuple[int]]:
+
+Same as `boggle.get_coords()`.
+
+#### score(boggle: Boggle) -> list[int]:
+
+Same as `boggle.get_score()`.

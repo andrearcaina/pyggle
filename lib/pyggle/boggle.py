@@ -47,7 +47,7 @@ class Boggle:
     def __contains__(self, word: str) -> bool:
         return word in self.get_words()
     
-    def solver(self) -> dict[str, list[tuple[int]]]:
+    def solve(self) -> dict[str, list[tuple[int]]]:
         if self.official and self.get_length() < 3:
             return {}
 
@@ -64,16 +64,16 @@ class Boggle:
         return len(self.board) * len(self.board[0])
 
     def get_words(self) -> list:
-        if not self.solver():
+        if not self.solve():
             return []
 
-        return [key for key in self.solver().keys()]
+        return [key for key in self.solve().keys()]
 
     def get_coords(self) -> list:
-        if not self.solver():
+        if not self.solve():
             return []
 
-        return [value for value in self.solver().values()]
+        return [value for value in self.solve().values()]
 
     def get_score(self) -> list[int]:
         score = []
@@ -93,16 +93,14 @@ class Boggle:
         return score
 
     def time_solve(self) -> float:
-        return timeit(self.solver, number=1)
+        return timeit(self.solve, number=1)
 
     def print_result(self) -> None:
-        if not self.solver():
+        if not self.solve():
             print("No words!")
             return
 
-        result = self.solver()
-
-        for word, positions in result.items():
+        for word, positions in self.solve().items():
             print(f"{word}: {positions}")
 
     def print_board(self) -> None:
@@ -149,16 +147,46 @@ class Boggle:
             return False
 
         positions.append((x, y))
-
-        if len(word) == 1:
+        
+        if not self.official and len(word) == 1:
             return True
 
+        if self.official and len(word) == 1 and word != 'q': # only if official rules are true
+            return True
+
+        if self.official:
+            if word.startswith('qu'):
+                return self.__traverse_directions(word[2:], x, y, rows, cols, positions)
+            elif word == 'q' or (word[0] == 'q' and word[1] != 'u'):
+                return False
+            else:
+                return self.__traverse_directions(word[1:], x, y, rows, cols, positions)
+        else:
+            return self.__traverse_directions(word[1:], x, y, rows, cols, positions)
+
+    def __traverse_directions(self, word: str, x: int, y: int, rows: int, cols: int, positions: list) -> bool:
         for i in [-1, 0, 1]:
             for j in [-1, 0, 1]:
-                move = self.__search(word[1:], x + i, y + j, rows, cols, positions)
-                
-                if move:
+                if i == 0 and j == 0:
+                    continue # skip current position when i = j = 0
+                if self.__search(word, x + i, y + j, rows, cols, positions):
                     return True
 
         positions.pop()
         return False
+
+# functions for pythonic function calls
+def solve(boggle: Boggle) -> dict[str, list[tuple[int]]]:
+    return boggle.solve()
+
+def time(boggle: Boggle) -> float:
+    return boggle.time_solve()
+
+def words(boggle: Boggle) -> list[str]:
+    return boggle.get_words()
+
+def coords(boggle: Boggle) -> list[tuple[int]]:
+    return boggle.get_coords()
+
+def score(boggle: Boggle) -> list[int]:
+    return boggle.get_score()
