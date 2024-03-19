@@ -16,7 +16,7 @@ pip install pyggle
 ```
 
 ## Usage
-
+Input is case sensitive! (for the board)
 ```python
 from pyggle import Boggle
 
