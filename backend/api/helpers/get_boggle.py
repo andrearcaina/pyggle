@@ -1,4 +1,4 @@
-from pyggle import Boggle
+from pyggle import Boggle, words, coords, score
 
 def determine_words(given_list):
     result_words = []
@@ -19,12 +19,12 @@ def determine_words(given_list):
 
 def found_words(board, word_string, official):
     boggle = Boggle(board, determine_words(word_string), official)
-    return boggle.get_words()
+    return words(boggle)
 
 def coordinates(board, word_string, official):
     boggle = Boggle(board, determine_words(word_string), official)
-    return boggle.get_coords()
+    return coords(boggle)
 
 def scores(board, word_string, official):
     boggle = Boggle(board, determine_words(word_string), official)
-    return boggle.get_score()
+    return score(boggle)
