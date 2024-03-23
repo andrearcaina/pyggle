@@ -1,5 +1,6 @@
 import unittest
-from lib.pyggle.boggle import Boggle
+from pyggle.boggle import Boggle
+from pyggle.functions import solve
 
 # testing 2x2 boards through string or list of lists with or without words
 
@@ -11,7 +12,7 @@ class TestBoggle(unittest.TestCase):
     def test_not_official(self):
         board = [['e', 'a'], ['s', 't']]
         boggle = Boggle(board, self.words)
-        result = boggle.solver()
+        result = solve(boggle)
         expected_result = {'a': [(0, 1)], 'as': [(0, 1), (1, 0)], 'at': [(0, 1), (1, 1)], 'east': [(0, 0), (0, 1), (1, 0), (1, 1)], 
                             'eat': [(0, 0), (0, 1), (1, 1)], 'sea': [(1, 0), (0, 0), (0, 1)], 'seat': [(1, 0), (0, 0), (0, 1), (1, 1)], 'set': [(1, 0), (0, 0), (1, 1)], 'tea': [(1, 1), (0, 0), (0, 1)]}
         self.assertEqual(result, expected_result)
@@ -19,7 +20,7 @@ class TestBoggle(unittest.TestCase):
     def test_yes_official(self):
         board = [['e', 'a'], ['s', 't']]
         boggle = Boggle(board, self.words, True)
-        result = boggle.solver()
+        result = solve(boggle)
         expected_result = {'east': [(0, 0), (0, 1), (1, 0), (1, 1)], 'eat': [(0, 0), (0, 1), (1, 1)], 
                             'sea': [(1, 0), (0, 0), (0, 1)], 'seat': [(1, 0), (0, 0), (0, 1), (1, 1)], 
                             'set': [(1, 0), (0, 0), (1, 1)], 'tea': [(1, 1), (0, 0), (0, 1)]}
@@ -28,7 +29,7 @@ class TestBoggle(unittest.TestCase):
     def test_string(self):
         board = 'ea st'
         boggle = Boggle(board, self.words)
-        result = boggle.solver()
+        result = solve(boggle)
         expected_result = {'a': [(0, 1)], 'as': [(0, 1), (1, 0)], 'at': [(0, 1), (1, 1)], 'east': [(0, 0), (0, 1), (1, 0), (1, 1)], 
                             'eat': [(0, 0), (0, 1), (1, 1)], 'sea': [(1, 0), (0, 0), (0, 1)], 'seat': [(1, 0), (0, 0), (0, 1), (1, 1)], 'set': [(1, 0), (0, 0), (1, 1)], 'tea': [(1, 1), (0, 0), (0, 1)]}
         self.assertEqual(result, expected_result)
@@ -36,7 +37,7 @@ class TestBoggle(unittest.TestCase):
     def test_no_words(self):
         board = "ea st"
         boggle = Boggle(board)
-        result = boggle.solver()
+        result = solve(boggle)
         expected_result = {'a': [(0, 1)], 'ae': [(0, 1), (0, 0)], 'aes': [(0, 1), (0, 0), (1, 0)], 
                             'aet': [(0, 1), (0, 0), (1, 1)], 'as': [(0, 1), (1, 0)], 'ase': [(0, 1), (1, 0), (0, 0)], 
                             'ast': [(0, 1), (1, 0), (1, 1)], 'at': [(0, 1), (1, 1)], 'ate': [(0, 1), (1, 1), (0, 0)], 
