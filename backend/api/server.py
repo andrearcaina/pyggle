@@ -23,17 +23,17 @@ async def return_data():
     result = {"Hello": "World!"}
     return JSONResponse(content=result)
 
-@app.get("/api/words")
+@app.get("/api/words/{board}")
 async def return_words(board: str, words: Union[str, None] = None, official: bool = False):
     all_words = found_words(board, words, official)
     return JSONResponse(content=all_words)
 
-@app.get("/api/coords")
+@app.get("/api/coords/{board}")
 async def return_coords(board: str, words: Union[str, None] = None, official: bool = False):
     all_coords = coordinates(board, words, official)
     return JSONResponse(content=all_coords)
 
-@app.get("/api/scores")
+@app.get("/api/scores/{board}")
 async def return_coords(board: str, words: Union[str, None] = None, official: bool = False):
     all_scores = scores(board, words, official)
     return JSONResponse(content=all_scores)
