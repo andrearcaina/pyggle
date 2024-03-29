@@ -4,7 +4,7 @@
 
 ### Constructor
 
-#### `__init__(board: Union[list[list[str]], str], words: list[str] = [], official: bool = False)`
+#### `__init__(board: Union[list[list[str]], str], words: list[str] = None, official: bool = False)`
 
 Initialize a Boggle game instance with the given board, word list, and official status.
 

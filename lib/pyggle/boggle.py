@@ -3,7 +3,7 @@ from typing import Union
 from timeit import timeit
 
 class Boggle:
-    def __init__(self, board: Union[list[list[str]], str], words: list[str] = [], official: bool = False):
+    def __init__(self, board: Union[list[list[str]], str], words: list[str] = None, official: bool = False):
         self.board = board
         self.words = words
         self.official = official
@@ -148,21 +148,16 @@ class Boggle:
 
         positions.append((x, y))
         
-        if not self.official and len(word) == 1:
-            return True
-
-        if self.official and len(word) == 1 and word != 'q': # only if official rules are true
-            return True
-
         if self.official:
             if word.startswith('qu'):
                 return self.__traverse_directions(word[2:], x, y, rows, cols, positions)
-            elif word == 'q' or (word[0] == 'q' and word[1] != 'u'):
+            elif word[0] == 'q':
                 return False
-            else:
-                return self.__traverse_directions(word[1:], x, y, rows, cols, positions)
-        else:
-            return self.__traverse_directions(word[1:], x, y, rows, cols, positions)
+
+        if len(word) == 1:
+            return True
+
+        return self.__traverse_directions(word[1:], x, y, rows, cols, positions)
 
     def __traverse_directions(self, word: str, x: int, y: int, rows: int, cols: int, positions: list) -> bool:
         for i in [-1, 0, 1]:
