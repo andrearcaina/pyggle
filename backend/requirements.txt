@@ -26,7 +26,7 @@ pydantic_core==2.18.1
 pyggle==1.1.315
 python-bidi==0.4.2
 PyYAML==6.0.1
-scikit-image==0.22.0
+scikit-image==0.23.2
 scipy==1.12.0
 shapely==2.0.4
 six==1.16.0
