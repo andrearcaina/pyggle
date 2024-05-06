@@ -10,7 +10,7 @@ export default function Home() {
   
   const fetchWords = async () => {
     try {
-      const response = await fetch("http://localhost:8000/api/words?board=ae st&words=3000&official=True") 
+      const response = await fetch("http://localhost:8000/api/words/ae st&words=3000&official=True")
       const data = await response.json();
       setAllWords(data);
     } catch (error) {
