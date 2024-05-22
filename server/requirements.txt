@@ -208,7 +208,7 @@ toolz==0.12.1
 torch==2.2.1
 torchvision==0.17.1
 tornado==6.4
-tqdm==4.66.2
+tqdm==4.66.3
 traitlets==5.14.1
 twine==5.0.0
 Twisted==24.3.0
