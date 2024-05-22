@@ -64,7 +64,7 @@ h5py==3.10.0
 htbuilder==0.6.1
 httptools==0.6.1
 hyperlink==21.0.0
-idna==3.6
+idna==3.7
 ifaddr==0.2.0
 imageio==2.34.0
 importlib-metadata==7.0.1
