@@ -21,22 +21,22 @@ app.add_middleware(
 @app.get("/api/data")
 async def return_data():
     result = {"Hello": "World!"}
-    return JSONResponse(content=result)
+    return JSONResponse(content=result, status_code=200)
 
 @app.get("/api/words/{board}")
 async def return_words(board: str, words: Union[str, None] = None, official: bool = False):
     all_words = found_words(board, words, official)
-    return JSONResponse(content=all_words)
+    return JSONResponse(content=all_words, status_code=200)
 
 @app.get("/api/coords/{board}")
 async def return_coords(board: str, words: Union[str, None] = None, official: bool = False):
     all_coords = coordinates(board, words, official)
-    return JSONResponse(content=all_coords)
+    return JSONResponse(content=all_coords, status_code=200)
 
 @app.get("/api/scores/{board}")
 async def return_coords(board: str, words: Union[str, None] = None, official: bool = False):
     all_scores = scores(board, words, official)
-    return JSONResponse(content=all_scores)
+    return JSONResponse(content=all_scores, status_code=200)
 
 @app.post("/api/detect") # post method cuz of update of image/data
 async def return_image():
