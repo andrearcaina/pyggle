@@ -23,6 +23,15 @@ async def return_data():
     result = {"Hello": "World!"}
     return JSONResponse(content=result, status_code=200)
 
+@app.get("/api/data/{board}")
+async def return_all(board: str, words: Union[str, None] = None, official: bool = False):
+    all_words = found_words(board, words, official)
+    all_coords = coordinates(board, words, official)
+    all_scores = scores(board, words, official)
+    result: dict = {"words": all_words, "coords": all_coords, "scores": all_scores}
+
+    return JSONResponse(content=result, status_code=200)
+
 @app.get("/api/words/{board}")
 async def return_words(board: str, words: Union[str, None] = None, official: bool = False):
     all_words = found_words(board, words, official)
@@ -34,7 +43,7 @@ async def return_coords(board: str, words: Union[str, None] = None, official: bo
     return JSONResponse(content=all_coords, status_code=200)
 
 @app.get("/api/scores/{board}")
-async def return_coords(board: str, words: Union[str, None] = None, official: bool = False):
+async def return_scores(board: str, words: Union[str, None] = None, official: bool = False):
     all_scores = scores(board, words, official)
     return JSONResponse(content=all_scores, status_code=200)
 
