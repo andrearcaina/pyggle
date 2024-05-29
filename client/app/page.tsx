@@ -1,30 +1,26 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { Form, Result } from '@/components';
+import { DataType } from '@/types/types';
+import { useState } from 'react';
+import Image from 'next/image';
 
 export default function Home() {
-  const [allWords, setAllWords] = useState([]);
-
-  useEffect(() => {
-    fetchWords();
-  }, []);
-  
-  const fetchWords = async () => {
-    try {
-      const response = await fetch("http://localhost:8000/api/words/ae st&words=3000&official=True")
-      const data = await response.json();
-      setAllWords(data);
-    } catch (error) {
-      console.error("Error fetching FastAPI response:, ", error);
-    }
-  }
+  const [data, setData] = useState<DataType | undefined>(undefined);
 
   return (
-    <main>
-      {allWords.map((word, index) => (
-        <div key={index}>
-          <p> {word} </p>
+      <main className={"bg-slate-500 min-h-[95vh]"}>
+        <div className={"flex justify-center items-center"}>
+          <Image
+              alt={"Logo"}
+              src={"/pyggle_logo.png"}
+              width={350}
+              height={350}>
+          </Image>
         </div>
-      ))}
-    </main>
+
+        <Form setData={setData} />
+
+        <Result output={data} />
+      </main>
   );
 }

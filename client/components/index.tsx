@@ -1,3 +1,4 @@
 'use client';
-export { default as Navbar } from './general/navbar';
-export { default as Footer } from './general/footer';
+export { default as Footer } from './footer';
+export { default as Form } from './form';
+export { default as Result } from './result';
