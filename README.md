@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="client/public/pyggle_logo - white.png" alt="logo" width="50%">
+  <img src="assets/pyggle_logo - white.png" alt="logo" width="50%">
 </h1>
 
 # Pyggle
