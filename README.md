@@ -45,9 +45,9 @@ boggle.print_result()
 
 For more functions from `pyggle`, check:
 
-- [`lib/examples/2x2_example.py`](https://github.com/andrearcaina/pyggle/blob/main/lib/examples/2x2_example.py) for general functions and more specificity
-- [`lib/examples/qu_example.py`](https://github.com/andrearcaina/pyggle/blob/main/lib/examples/qu_example.py) for an example where the letter 'Q' represents 'Qu'
-- [`lib/docs/boggle-api.md`](https://github.com/andrearcaina/pyggle/blob/main/lib/docs/boggle-api.md) for an understanding of each method
+- [`/examples/2x2_example.py`](https://github.com/andrearcaina/pyggle/tree/main/examples/2x2_example.py) for general functions and more specificity
+- [`/examples/qu_example.py`](https://github.com/andrearcaina/pyggle/tree/main/examples/qu_example.py) for an example where the letter 'Q' represents 'Qu'
+- [`/docs/boggle-api.md`](https://github.com/andrearcaina/pyggle/tree/main/docs/boggle-api.md) for an understanding of each method
 
 ### Output
 
