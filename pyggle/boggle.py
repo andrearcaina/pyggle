@@ -2,6 +2,46 @@ import os
 from typing import Union
 from timeit import timeit
 
+class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.is_word = False
+        self.word = None
+
+class Trie:
+    def __init__(self):
+        self.root = TrieNode()
+
+    def insert(self, word: str) -> None:
+        node = self.root
+        
+        for char in word:
+            if char not in node.children:
+                node.children[char] = TrieNode()
+            node = node.children[char]
+        
+        node.is_word = True
+        node.word = word
+
+    def search(self, word: str) -> bool:
+        node = self.root
+        
+        for char in word:
+            if char not in node.children:
+                return False
+            node = node.children[char]
+        
+        return node.is_word
+
+    def starts_with(self, prefix: str) -> bool:
+        node = self.root
+        for char in prefix:
+            if char not in node.children:
+                return False
+            node = node.children[char]
+        
+        return True
+
 class Boggle:
     def __init__(self, board: Union[list[list[str]], str], words: list[str] = None, official: bool = False):
         self.board = board
@@ -26,6 +66,10 @@ class Boggle:
 
         if isinstance(self.board, str):
             self.board = self.__bogglefy()
+            
+        self.trie = Trie()
+        for word in self.words:
+            self.trie.insert(word.lower())
 
     def __print__(self) -> None:
         self.print_board()
@@ -48,6 +92,9 @@ class Boggle:
         return word in self.get_words()
     
     def solve(self) -> dict[str, list[tuple[int, int]]]:
+        return self.solve_trie()
+
+    def solve_dfs(self) -> dict[str, list[tuple[int, int]]]:
         if self.official and self.get_length() < 3:
             return {}
 
@@ -58,6 +105,21 @@ class Boggle:
         for word in self.words:
             self.__filter(word, [], rows, cols, result)
 
+        return result
+
+    def solve_trie(self) -> dict[str, list[tuple[int, int]]]:
+        if self.official and self.get_length() < 3:
+            return {}
+
+        result = {}
+        rows = len(self.board)
+        cols = len(self.board[0])
+        
+        for i in range(rows):
+            for j in range(cols):
+                visited = [[False] * cols for _ in range(rows)]
+                self.__dfs_trie(i, j, rows, cols, "", self.trie.root, visited, [], result)
+        
         return result
 
     def get_length(self) -> int:
@@ -94,6 +156,12 @@ class Boggle:
 
     def time_solve(self) -> float:
         return timeit(self.solve, number=1)
+
+    def time_solve_trie(self) -> float:
+        return timeit(self.solve_trie, number=1)
+
+    def time_solve_dfs(self) -> float:
+        return timeit(self.solve_dfs, number=1)
 
     def print_result(self) -> None:
         if not self.solve():
@@ -169,3 +237,41 @@ class Boggle:
 
         positions.pop()
         return False
+
+    def __dfs_trie(self, x: int, y: int, rows: int, cols: int, current_word: str, node: TrieNode, visited: list[list[bool]], path: list[tuple[int, int]], result: dict) -> None:
+        if x < 0 or x >= rows or y < 0 or y >= cols or visited[x][y]:
+            return
+        
+        char = self.board[x][y].lower()
+        
+        if self.official and char == 'q':
+            if 'qu' not in node.children:
+                return
+            node = node.children['qu']
+            current_word += 'qu'
+        else:
+            if char not in node.children:
+                return
+            node = node.children[char]
+            current_word += char
+        
+        visited[x][y] = True
+        path.append((x, y))
+        
+        if node.is_word:
+            if self.official:
+                if len(current_word) >= 3:
+                    if current_word not in result:
+                        result[current_word] = path.copy()
+            else:
+                if current_word not in result:
+                    result[current_word] = path.copy()
+        
+        for dx in [-1, 0, 1]:
+            for dy in [-1, 0, 1]:
+                if dx == 0 and dy == 0:
+                    continue
+                self.__dfs_trie(x + dx, y + dy, rows, cols, current_word, node, visited, path, result)
+        
+        visited[x][y] = False
+        path.pop()
