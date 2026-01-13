@@ -154,6 +154,12 @@ class Boggle:
 
         return score
 
+    def get_rank(self, top: int = 10) -> list[tuple[str, int]]:
+        if top <= 0:
+            raise ValueError("Top must be an integer greater than 0")
+        
+        return self.__rank(top)
+
     def time_solve(self) -> float:
         return timeit(self.solve, number=1)
 
@@ -173,6 +179,13 @@ class Boggle:
 
     def print_board(self) -> None:
         print(self.__stringify())
+
+    def __rank(self, top: int = 10) -> list[tuple[str, int]]:
+        words = self.get_words()
+        scores = self.get_score()
+        word_score_pairs = list(zip(words, scores))
+        word_score_pairs.sort(key=lambda x: x[1], reverse=True)
+        return word_score_pairs[:top]
 
     def __check_board(self) -> bool:
         sublist_type = all(isinstance(sublist, list) for sublist in self.board)

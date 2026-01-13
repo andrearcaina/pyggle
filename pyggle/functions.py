@@ -15,3 +15,6 @@ def coords(boggle: Boggle) -> list[tuple[int, int]]:
 
 def score(boggle: Boggle) -> list[int]:
     return boggle.get_score()
+
+def rank(boggle: Boggle, top: int = 10) -> list[tuple[str, int]]:
+    return boggle.get_rank(top)
